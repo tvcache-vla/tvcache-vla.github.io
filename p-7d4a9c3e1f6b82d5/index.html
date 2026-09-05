@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="">
+  <title>TVCache · Anonymous Project Page</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="nav-shell">
+      <a class="brand" href="#top" aria-label="TVCache home">
+        <span class="brand-mark" aria-hidden="true">
+          <i></i><i></i><i></i><i></i>
+        </span>
+        <span>TVCache</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#overview">Overview</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#citation">Citation</a>
+      </nav>
+      <span class="privacy-chip"><span aria-hidden="true"></span> Unlisted</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="orb orb-one" aria-hidden="true"></div>
+      <div class="orb orb-two" aria-hidden="true"></div>
+      <div class="shell hero-inner">
+        <div class="eyebrow reveal">Anonymous submission · Project page</div>
+        <h1 class="reveal delay-1">
+          <span class="accent">Text–Vision Synergistic</span><br>
+          Token Caching
+        </h1>
+        <p class="subtitle reveal delay-2">
+          A training-free framework for efficient
+          vision–language–action inference
+        </p>
+        <p class="authors reveal delay-2">Anonymous Author(s)</p>
+        <div class="hero-actions reveal delay-3">
+          <a class="button button-primary" href="#overview">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l4 4v16H6zM14 2v5h5M9 12h6M9 16h6"/></svg>
+            Read overview
+          </a>
+          <a class="button" href="#method">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+            Explore method
+          </a>
+          <span class="button button-disabled" title="The current source folder contains a template PDF rather than the compiled manuscript." aria-disabled="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+            PDF pending
+          </span>
+        </div>
+        <div class="hero-note reveal delay-3">
+          No analytics · No cookies · No external requests
+        </div>
+      </div>
+    </section>
+
+    <section class="section tldr-section" id="overview">
+      <div class="shell narrow">
+        <div class="section-kicker">In one sentence</div>
+        <p class="tldr">
+          TVCache uses language-conditioned evidence to decide
+          <strong>which visual tokens</strong> and <strong>which network layers</strong>
+          are reliable enough to reuse—without retraining the VLA.
+        </p>
+        <div class="metric-grid" aria-label="Headline results">
+          <article class="metric-card reveal">
+            <span class="metric-label">OpenVLA-OFT · 12.5% retention</span>
+            <strong>+14.5<small> pp</small></strong>
+            <p>average success over VLA-Cache</p>
+          </article>
+          <article class="metric-card reveal delay-1">
+            <span class="metric-label">OpenVLA-OFT · compute</span>
+            <strong>2.44<small>×</small></strong>
+            <p>FLOPs reduction vs. full-token inference</p>
+          </article>
+          <article class="metric-card reveal delay-2">
+            <span class="metric-label">Evaluation breadth</span>
+            <strong>4<small> VLAs</small></strong>
+            <p>plus LIBERO, CALVIN, and real-robot tasks</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section figure-section">
+      <div class="shell wide">
+        <figure class="paper-figure reveal">
+          <div class="figure-frame">
+            <img src="assets/introduction.png" alt="Diagram contrasting token-level spatial misalignment and layer-level depth mismatch." loading="eager">
+          </div>
+          <figcaption>
+            <span>Motivation.</span> Existing VLA caching can mix degraded attention heads
+            and reuse representations at unstable depths.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section abstract-section" id="abstract">
+      <div class="shell two-column">
+        <div>
+          <div class="section-kicker">Abstract</div>
+          <h2>Efficient caching needs<br>cross-modal reliability.</h2>
+        </div>
+        <div class="prose">
+          <p>
+            Vision–language–action models enable generalizable robotic control but remain
+            computationally expensive. Token caching is a training-free, plug-and-play
+            alternative, yet existing methods do not fully exploit <em>text–vision
+            synergy</em>: textual semantics should guide precise visual grounding and
+            reliable cache allocation.
+          </p>
+          <p>
+            TVCache addresses two overlooked factors. It filters attention heads according
+            to text–vision information focus, improving task-relevant visual grounding,
+            and selects cache-reuse layers using text–vision entropy differences, avoiding
+            unstable representations. Across four VLA models, two simulation benchmarks,
+            and real-world robotic tasks, TVCache improves task success at matched
+            token-retention ratios while maintaining comparable computational cost.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section problem-section">
+      <div class="shell">
+        <div class="section-heading centered">
+          <div class="section-kicker">Why caching fails</div>
+          <h2>Two mismatches, one missing signal</h2>
+          <p>Existing reuse policies underuse the interaction between language and vision.</p>
+        </div>
+        <div class="problem-grid">
+          <article class="problem-card reveal">
+            <span class="card-index">01</span>
+            <div class="mini-visual spatial" aria-hidden="true">
+              <div class="mini-grid"></div>
+              <span class="focus good"></span>
+              <span class="focus bad"></span>
+              <span class="cross">×</span>
+            </div>
+            <h3>Token-level spatial misalignment</h3>
+            <p>
+              Uniformly averaging all attention heads mixes focused task evidence with
+              diffuse responses, biasing relevance scores toward background regions.
+            </p>
+          </article>
+          <article class="problem-card reveal delay-1">
+            <span class="card-index">02</span>
+            <div class="mini-visual depth" aria-hidden="true">
+              <span class="layer stable">stable</span>
+              <span class="line"></span>
+              <span class="layer unstable">unstable</span>
+              <span class="line"></span>
+              <span class="layer">deep</span>
+            </div>
+            <h3>Layer-level depth mismatch</h3>
+            <p>
+              Reusing too early propagates unstable cross-modal features; reusing too late
+              repeats computation after representations have already stabilized.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section method-section" id="method">
+      <div class="shell">
+        <div class="section-heading">
+          <div class="section-kicker">Method</div>
+          <h2>Text–vision synergy at two resolutions</h2>
+          <p>
+            TVCache refines both the spatial token decision and the depth-wise reuse decision.
+          </p>
+        </div>
+        <figure class="paper-figure method-figure reveal">
+          <div class="figure-frame">
+            <img src="assets/model-tvcache-2_00.png" alt="Overview of TVCache token selection and reuse-layer selection." loading="lazy">
+          </div>
+          <figcaption>
+            <span>Framework.</span> Temporal similarity proposes reusable regions; filtered
+            text–vision attention protects task-relevant tokens; entropy guides reuse depth.
+          </figcaption>
+        </figure>
+
+        <div class="method-grid">
+          <article class="method-card reveal">
+            <div class="method-number">01</div>
+            <div>
+              <span class="method-tag">What to reuse</span>
+              <h3>Attention-head filtering</h3>
+              <p>
+                Each head is evaluated by semantic response intensity and spatial entropy.
+                Heads with strong text-conditioned response and concentrated visual focus
+                define a cleaner task-relevance map.
+              </p>
+              <div class="equation" aria-label="Head score equals alpha times response intensity minus beta times attention entropy.">
+                S<sub>head</sub>(n) = α I<sup>(n)</sup> − β H<sup>(n)</sup>
+              </div>
+              <p class="method-foot">
+                Temporally stable tokens remain reusable only when they are not protected
+                by the filtered task-relevance map.
+              </p>
+            </div>
+          </article>
+          <article class="method-card reveal delay-1">
+            <div class="method-number">02</div>
+            <div>
+              <span class="method-tag">Where to reuse</span>
+              <h3>Entropy-guided layer selection</h3>
+              <p>
+                Layer-wise text–vision entropy acts as a stability signal. TVCache selects
+                low-entropy reuse locations while enforcing a minimum interval between
+                selected layers.
+              </p>
+              <div class="equation" aria-label="Select K reuse layers maximizing stability with a minimum interval constraint.">
+                K<sub>reuse</sub> = arg max Σ R<sup>(l)</sup>
+                <span>s.t. |K| = K, |l<sub>i</sub> − l<sub>j</sub>| ≥ d<sub>min</sub></span>
+              </div>
+              <p class="method-foot">
+                A depth-aware retention schedule preserves more information in deeper
+                layers and restores full retention at the terminal reuse layer.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section results-section" id="results">
+      <div class="shell">
+        <div class="section-heading centered">
+          <div class="section-kicker">Results</div>
+          <h2>Stronger under tighter budgets</h2>
+          <p>
+            Average task success on LIBERO. All comparisons use matched token-retention ratios.
+          </p>
+        </div>
+
+        <div class="results-panel reveal">
+          <div class="model-tabs" role="tablist" aria-label="Select VLA model">
+            <button class="model-tab active" role="tab" aria-selected="true" data-model="openvla">OpenVLA-OFT</button>
+            <button class="model-tab" role="tab" aria-selected="false" data-model="bitvla">BitVLA</button>
+            <button class="model-tab" role="tab" aria-selected="false" data-model="adapter">VLA-Adapter</button>
+            <button class="model-tab" role="tab" aria-selected="false" data-model="pi05">π<sub>0.5</sub></button>
+          </div>
+          <div class="result-summary">
+            <div>
+              <span class="result-overline" data-result-label>OpenVLA-OFT · most aggressive setting</span>
+              <strong data-result-delta>+14.50 pp</strong>
+              <p data-result-copy>over VLA-Cache at 12.5% token retention</p>
+            </div>
+            <div class="legend" aria-label="Chart legend">
+              <span><i class="cache"></i>VLA-Cache</span>
+              <span><i class="ours"></i>TVCache</span>
+            </div>
+          </div>
+          <div class="bar-chart" data-chart aria-label="Average success comparison chart"></div>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Retention</th>
+                  <th>VLA-Cache</th>
+                  <th>TVCache</th>
+                  <th>Gain</th>
+                </tr>
+              </thead>
+              <tbody data-result-table></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="result-cards">
+          <article class="result-card reveal">
+            <span>Cross-model</span>
+            <strong>Consistent gains</strong>
+            <p>
+              TVCache improves the average success of all four evaluated VLA architectures
+              at 25% token retention.
+            </p>
+          </article>
+          <article class="result-card reveal delay-1">
+            <span>CALVIN · 25%</span>
+            <strong>58.24%</strong>
+            <p>
+              VLA-Adapter with TVCache, compared with 48.06% for VLA-Cache in
+              Split ABC → D.
+            </p>
+          </article>
+          <article class="result-card reveal delay-2">
+            <span>OpenVLA-OFT · 12.5%</span>
+            <strong>84.00%</strong>
+            <p>
+              Average LIBERO success, compared with 69.50% for VLA-Cache.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section evidence-section">
+      <div class="shell">
+        <div class="section-heading">
+          <div class="section-kicker">Physical deployment</div>
+          <h2>Robust gains beyond simulation</h2>
+          <p>
+            Franka Research 3 evaluation across SetKettle, PackPear, HangCup, and PotDuck.
+          </p>
+        </div>
+        <figure class="paper-figure reveal">
+          <div class="figure-frame">
+            <img src="assets/flat_bar_chart_2_amplified.png" alt="Real-world success rates for four manipulation tasks at several token-retention ratios." loading="lazy">
+          </div>
+          <figcaption>
+            <span>Real-world evaluation.</span> TVCache remains stronger than VLA-Cache as
+            token retention becomes more aggressive.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section ablation-section">
+      <div class="shell">
+        <div class="section-heading">
+          <div class="section-kicker">Ablation</div>
+          <h2>Both components matter</h2>
+          <p>
+            Removing either head filtering or layer selection reduces success, especially
+            under aggressive token reduction.
+          </p>
+        </div>
+        <figure class="paper-figure reveal">
+          <div class="figure-frame">
+            <img src="assets/ablation_2x5_grid_max_impact.png" alt="Ablation results across LIBERO suites and token-retention ratios." loading="lazy">
+          </div>
+          <figcaption>
+            <span>Component analysis.</span> Head filtering improves spatial grounding;
+            layer selection avoids unstable cache locations.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section citation-section" id="citation">
+      <div class="shell two-column">
+        <div>
+          <div class="section-kicker">Citation</div>
+          <h2>Anonymous during review</h2>
+          <p class="citation-note">
+            Author and repository information will be added after the anonymous review period.
+          </p>
+        </div>
+        <div class="citation-box">
+          <button type="button" class="copy-button" data-copy aria-label="Copy anonymous BibTeX">Copy</button>
+          <pre><code data-bibtex>@inproceedings{anonymous2027tvcache,
+  title     = {Text-Vision Synergistic Token Caching:
+               A Training-Free Framework for Efficient
+               Vision-Language-Action Inference},
+  author    = {Anonymous Author(s)},
+  booktitle = {Under Review},
+  year      = {2027}
+}</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <p>Anonymous project page · Under review</p>
+      <p>No analytics, cookies, tracking pixels, or external assets.</p>
+    </div>
+  </footer>
+</body>
+</html>

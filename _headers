@@ -1,0 +1,11 @@
+/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex
+  Referrer-Policy: no-referrer
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; media-src 'self'; object-src 'self'; frame-ancestors 'self'; base-uri 'none'; form-action 'none'
+
+/p-7d4a9c3e1f6b82d5/*
+  Cache-Control: public, max-age=300
+
