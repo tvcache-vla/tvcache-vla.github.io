@@ -149,6 +149,17 @@ figure img {
   text-align: left;
 }
 
+.result-heading {
+  margin: 0 0 10px;
+  color: #222222;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.real-world-heading {
+  margin-top: 46px;
+}
+
 .result-summary strong {
   color: #111111;
 }
