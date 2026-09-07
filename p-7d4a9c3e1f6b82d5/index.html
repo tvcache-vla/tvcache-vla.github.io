@@ -81,6 +81,50 @@
       </div>
     </section>
 
+    <section class="section" id="token-dynamics">
+      <div class="container content-width">
+        <h2>Attention-Guided Token Dynamics</h2>
+        <p class="section-intro">
+          The videos show how token decisions evolve during manipulation. <strong>Blue</strong> patches are visually stable and reused after attention filtering; <strong>yellow</strong> patches are recomputed because they changed or remain task-relevant under language-conditioned attention. A thicker yellow outline marks a visually stable patch promoted to recomputation by attention.
+        </p>
+
+        <h3 class="dynamics-heading">LIBERO Simulation</h3>
+        <div class="video-grid" aria-label="LIBERO token dynamics">
+          <video autoplay muted loop playsinline controls preload="metadata" poster="assets/token-dynamics/libero-spatial.jpg">
+            <source src="assets/token-dynamics/libero-spatial.mp4" type="video/mp4">
+          </video>
+          <video autoplay muted loop playsinline controls preload="metadata" poster="assets/token-dynamics/libero-object.jpg">
+            <source src="assets/token-dynamics/libero-object.mp4" type="video/mp4">
+          </video>
+          <video autoplay muted loop playsinline controls preload="metadata" poster="assets/token-dynamics/libero-goal.jpg">
+            <source src="assets/token-dynamics/libero-goal.mp4" type="video/mp4">
+          </video>
+          <video autoplay muted loop playsinline controls preload="metadata" poster="assets/token-dynamics/libero-long.jpg">
+            <source src="assets/token-dynamics/libero-long.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <h3 class="dynamics-heading real-dynamics-heading">Real-World Manipulation</h3>
+        <div class="video-grid" aria-label="Real-world token dynamics">
+          <video autoplay muted loop playsinline controls preload="metadata" poster="assets/token-dynamics/real-hang-cup.jpg">
+            <source src="assets/token-dynamics/real-hang-cup.mp4" type="video/mp4">
+          </video>
+          <video autoplay muted loop playsinline controls preload="metadata" poster="assets/token-dynamics/real-place-pear.jpg">
+            <source src="assets/token-dynamics/real-place-pear.mp4" type="video/mp4">
+          </video>
+          <video autoplay muted loop playsinline controls preload="metadata" poster="assets/token-dynamics/real-put-duck.jpg">
+            <source src="assets/token-dynamics/real-put-duck.mp4" type="video/mp4">
+          </video>
+          <video autoplay muted loop playsinline controls preload="metadata" poster="assets/token-dynamics/real-set-kettle.jpg">
+            <source src="assets/token-dynamics/real-set-kettle.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="caption dynamics-caption">
+          Four LIBERO suites and four physical Franka tasks. Each sequence spans the full episode at uniformly sampled policy-query positions.
+        </p>
+      </div>
+    </section>
+
     <section class="section" id="comparison">
       <div class="container content-width">
         <h2>Results</h2>

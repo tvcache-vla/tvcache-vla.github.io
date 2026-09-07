@@ -149,6 +149,33 @@ figure img {
   text-align: left;
 }
 
+.dynamics-heading {
+  margin: 0 0 14px;
+  font-size: 1.3rem;
+}
+
+.real-dynamics-heading {
+  margin-top: 38px;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.video-grid video {
+  aspect-ratio: 512 / 612;
+  background: #eeeeee;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  object-fit: cover;
+}
+
+.dynamics-caption {
+  margin-top: 14px;
+}
+
 .result-heading {
   margin: 0 0 10px;
   color: #222222;
@@ -245,6 +272,10 @@ footer p {
     gap: 24px;
   }
 
+  .video-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .section p {
     text-align: left;
   }
@@ -261,6 +292,11 @@ footer p {
 
   h2 {
     font-size: 1.7rem;
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   th,
