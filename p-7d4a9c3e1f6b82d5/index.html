@@ -44,7 +44,7 @@
           <strong>TVCache</strong> is a training-free framework that makes cache reuse task-aware at two complementary resolutions. It filters unreliable attention heads to obtain cleaner language-conditioned token relevance, and selects reuse layers according to cross-modal stability. The method plugs into pretrained VLAs without retraining or architectural modification.
         </p>
         <figure>
-          <img src="assets/introduction.png" alt="Motivation for text-vision synergistic token caching.">
+          <img src="assets/introduction.png" alt="Motivation for text-vision synergistic token caching." loading="lazy" decoding="async">
           <figcaption>
             Existing VLA caching can suffer from token-level spatial misalignment and layer-level depth mismatch when text–vision reliability is not explicitly considered.
           </figcaption>
@@ -59,7 +59,7 @@
           TVCache refines both the spatial token decision and the depth-wise reuse decision while preserving the training-free nature of token caching.
         </p>
         <figure>
-          <img src="assets/model-tvcache-2_00.png" alt="Overview of the TVCache framework.">
+          <img src="assets/model-tvcache-2_00.png" alt="Overview of the TVCache framework." loading="lazy" decoding="async">
           <figcaption>
             TVCache combines temporal patch similarity with filtered text–vision attention, then allocates cache reuse to stable network depths.
           </figcaption>
@@ -83,44 +83,47 @@
 
     <section class="section" id="token-dynamics">
       <div class="container content-width">
-        <h2>Attention-Guided Token Dynamics</h2>
+        <h2>Method Comparison</h2>
         <p class="section-intro">
-          The videos show how token decisions evolve during manipulation. <strong>Blue</strong> patches are visually stable and reused after attention filtering; <strong>yellow</strong> patches are recomputed because they changed or remain task-relevant under language-conditioned attention. A thicker yellow outline marks a visually stable patch promoted to recomputation by attention.
+          Each video synchronizes the same trajectory across <strong>Base</strong>, <strong>VLA-Cache</strong>, and <strong>Ours</strong>. Blue patches are reused; yellow patches are recomputed. VLA-Cache uses all-head text–vision attention, whereas Ours filters unreliable heads before token selection.
+        </p>
+        <p class="comparison-note">
+          Playback is time-rescaled to the OpenVLA-OFT end-to-end latency speedups reported at 12.5% token retention: <strong>1.00×</strong> for Base, <strong>1.79×</strong> for VLA-Cache, and <strong>1.80×</strong> for Ours. The clips visualize these measured relative rates and are not raw wall-clock recordings.
         </p>
 
         <h3 class="dynamics-heading">LIBERO Simulation</h3>
-        <div class="video-grid" aria-label="LIBERO token dynamics">
-          <video autoplay muted loop playsinline controls preload="metadata" poster="assets/token-dynamics/libero-spatial.jpg">
-            <source src="assets/token-dynamics/libero-spatial.mp4" type="video/mp4">
+        <div class="comparison-grid" aria-label="LIBERO method comparisons">
+          <video muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-spatial-comparison.jpg">
+            <source src="assets/method-comparison/libero-spatial-comparison.mp4" type="video/mp4">
           </video>
-          <video autoplay muted loop playsinline controls preload="metadata" poster="assets/token-dynamics/libero-object.jpg">
-            <source src="assets/token-dynamics/libero-object.mp4" type="video/mp4">
+          <video muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-object-comparison.jpg">
+            <source src="assets/method-comparison/libero-object-comparison.mp4" type="video/mp4">
           </video>
-          <video autoplay muted loop playsinline controls preload="metadata" poster="assets/token-dynamics/libero-goal.jpg">
-            <source src="assets/token-dynamics/libero-goal.mp4" type="video/mp4">
+          <video muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-goal-comparison.jpg">
+            <source src="assets/method-comparison/libero-goal-comparison.mp4" type="video/mp4">
           </video>
-          <video autoplay muted loop playsinline controls preload="metadata" poster="assets/token-dynamics/libero-long.jpg">
-            <source src="assets/token-dynamics/libero-long.mp4" type="video/mp4">
+          <video muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-long-comparison.jpg">
+            <source src="assets/method-comparison/libero-long-comparison.mp4" type="video/mp4">
           </video>
         </div>
 
         <h3 class="dynamics-heading real-dynamics-heading">Real-World Manipulation</h3>
-        <div class="video-grid" aria-label="Real-world token dynamics">
-          <video autoplay muted loop playsinline controls preload="metadata" poster="assets/token-dynamics/real-hang-cup.jpg">
-            <source src="assets/token-dynamics/real-hang-cup.mp4" type="video/mp4">
+        <div class="comparison-grid" aria-label="Real-world method comparisons">
+          <video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-hang-cup-comparison.jpg">
+            <source src="assets/method-comparison/real-hang-cup-comparison.mp4" type="video/mp4">
           </video>
-          <video autoplay muted loop playsinline controls preload="metadata" poster="assets/token-dynamics/real-place-pear.jpg">
-            <source src="assets/token-dynamics/real-place-pear.mp4" type="video/mp4">
+          <video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-place-pear-comparison.jpg">
+            <source src="assets/method-comparison/real-place-pear-comparison.mp4" type="video/mp4">
           </video>
-          <video autoplay muted loop playsinline controls preload="metadata" poster="assets/token-dynamics/real-put-duck.jpg">
-            <source src="assets/token-dynamics/real-put-duck.mp4" type="video/mp4">
+          <video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-put-duck-comparison.jpg">
+            <source src="assets/method-comparison/real-put-duck-comparison.mp4" type="video/mp4">
           </video>
-          <video autoplay muted loop playsinline controls preload="metadata" poster="assets/token-dynamics/real-set-kettle.jpg">
-            <source src="assets/token-dynamics/real-set-kettle.mp4" type="video/mp4">
+          <video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-set-kettle-comparison.jpg">
+            <source src="assets/method-comparison/real-set-kettle-comparison.mp4" type="video/mp4">
           </video>
         </div>
         <p class="caption dynamics-caption">
-          Four LIBERO suites and four physical Franka tasks. Each sequence spans the full episode at uniformly sampled policy-query positions.
+          Four LIBERO suites and four physical Franka tasks. All three panels in a task share the same source observations and synchronized start time.
         </p>
       </div>
     </section>
@@ -165,7 +168,7 @@
           We further evaluate TVCache on four physical manipulation tasks with a Franka Research 3 robot. The comparison below reports success rates at matched token-retention ratios.
         </p>
         <figure class="compact-figure">
-          <img src="assets/flat_bar_chart_2_amplified.png" alt="Real-world comparison between TVCache and VLA-Cache.">
+          <img src="assets/flat_bar_chart_2_amplified.png" alt="Real-world comparison between TVCache and VLA-Cache." loading="lazy" decoding="async">
           <figcaption>
             Real-world evaluation across SetKettle, PackPear, HangCup, and PotDuck under matched retention ratios.
           </figcaption>
