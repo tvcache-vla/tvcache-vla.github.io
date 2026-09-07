@@ -164,18 +164,47 @@ figure img {
   font-size: 0.92rem;
 }
 
-.comparison-grid {
+.budget-note {
+  margin: -4px 0 22px;
+  color: var(--muted) !important;
+  font-size: 0.88rem;
+  text-align: left !important;
+}
+
+.comparison-task {
+  margin-top: 30px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.comparison-task h4 {
+  margin: 0 0 14px;
+  color: #222222;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.retention-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
-.comparison-grid video {
+.retention-grid figure {
+  margin: 0;
+}
+
+.retention-grid video {
   aspect-ratio: 960 / 446;
   background: #eeeeee;
   border: 1px solid var(--line);
   border-radius: 3px;
   object-fit: contain;
+}
+
+.retention-grid figcaption {
+  margin-top: 6px;
+  font-size: 0.82rem;
 }
 
 .dynamics-caption {
@@ -296,7 +325,7 @@ footer p {
     font-size: 1.7rem;
   }
 
-  .comparison-grid {
+  .retention-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }

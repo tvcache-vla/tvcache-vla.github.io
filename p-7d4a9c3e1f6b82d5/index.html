@@ -83,47 +83,89 @@
 
     <section class="section" id="token-dynamics">
       <div class="container content-width">
-        <h2>Method Comparison</h2>
+        <h2>Full-Rollout Method Comparison</h2>
         <p class="section-intro">
-          Each video synchronizes the same trajectory across <strong>Base</strong>, <strong>VLA-Cache</strong>, and <strong>Ours</strong>. Blue patches are reused; yellow patches are recomputed. VLA-Cache uses all-head text–vision attention, whereas Ours filters unreliable heads before token selection.
+          Each clip shows the complete task trajectory across <strong>Base</strong>, <strong>VLA-Cache</strong>, and <strong>Ours</strong>. Every recorded observation is retained: LIBERO is rendered at its 30-FPS rollout rate and real-world demonstrations at their native 10 Hz. Blue patches are reused; yellow patches are recomputed.
         </p>
         <p class="comparison-note">
-          Playback is time-rescaled to the OpenVLA-OFT end-to-end latency speedups reported at 12.5% token retention: <strong>1.00×</strong> for Base, <strong>1.79×</strong> for VLA-Cache, and <strong>1.80×</strong> for Ours. The clips visualize these measured relative rates and are not raw wall-clock recordings.
+          Trajectory progression is time-rescaled to <strong>1.00×</strong> for Base, <strong>1.43×</strong> for VLA-Cache, and <strong>1.44×</strong> for Ours. These clips visualize the stated relative rates and are not raw wall-clock recordings. Token decisions update at policy-query boundaries and remain fixed between queries while the observation stream continues at the rollout frequency.
         </p>
 
         <h3 class="dynamics-heading">LIBERO Simulation</h3>
-        <div class="comparison-grid" aria-label="LIBERO method comparisons">
-          <video muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-spatial-comparison.jpg">
-            <source src="assets/method-comparison/libero-spatial-comparison.mp4" type="video/mp4">
-          </video>
-          <video muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-object-comparison.jpg">
-            <source src="assets/method-comparison/libero-object-comparison.mp4" type="video/mp4">
-          </video>
-          <video muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-goal-comparison.jpg">
-            <source src="assets/method-comparison/libero-goal-comparison.mp4" type="video/mp4">
-          </video>
-          <video muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-long-comparison.jpg">
-            <source src="assets/method-comparison/libero-long-comparison.mp4" type="video/mp4">
-          </video>
-        </div>
+        <p class="budget-note">Budgets: 50% = 210/100, 25% = 256/64, and 12.5% = 256/32 (candidate/relevance token counts).</p>
+
+        <article class="comparison-task">
+          <h4>LIBERO-Spatial</h4>
+          <div class="retention-grid">
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-spatial-retain-50-comparison.jpg"><source src="assets/method-comparison/libero-spatial-retain-50-comparison.mp4" type="video/mp4"></video><figcaption>Retain 50% · 210/100</figcaption></figure>
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-spatial-retain-25-comparison.jpg"><source src="assets/method-comparison/libero-spatial-retain-25-comparison.mp4" type="video/mp4"></video><figcaption>Retain 25% · 256/64</figcaption></figure>
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-spatial-retain-12p5-comparison.jpg"><source src="assets/method-comparison/libero-spatial-retain-12p5-comparison.mp4" type="video/mp4"></video><figcaption>Retain 12.5% · 256/32</figcaption></figure>
+          </div>
+        </article>
+
+        <article class="comparison-task">
+          <h4>LIBERO-Object</h4>
+          <div class="retention-grid">
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-object-retain-50-comparison.jpg"><source src="assets/method-comparison/libero-object-retain-50-comparison.mp4" type="video/mp4"></video><figcaption>Retain 50% · 210/100</figcaption></figure>
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-object-retain-25-comparison.jpg"><source src="assets/method-comparison/libero-object-retain-25-comparison.mp4" type="video/mp4"></video><figcaption>Retain 25% · 256/64</figcaption></figure>
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-object-retain-12p5-comparison.jpg"><source src="assets/method-comparison/libero-object-retain-12p5-comparison.mp4" type="video/mp4"></video><figcaption>Retain 12.5% · 256/32</figcaption></figure>
+          </div>
+        </article>
+
+        <article class="comparison-task">
+          <h4>LIBERO-Goal</h4>
+          <div class="retention-grid">
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-goal-retain-50-comparison.jpg"><source src="assets/method-comparison/libero-goal-retain-50-comparison.mp4" type="video/mp4"></video><figcaption>Retain 50% · 210/100</figcaption></figure>
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-goal-retain-25-comparison.jpg"><source src="assets/method-comparison/libero-goal-retain-25-comparison.mp4" type="video/mp4"></video><figcaption>Retain 25% · 256/64</figcaption></figure>
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-goal-retain-12p5-comparison.jpg"><source src="assets/method-comparison/libero-goal-retain-12p5-comparison.mp4" type="video/mp4"></video><figcaption>Retain 12.5% · 256/32</figcaption></figure>
+          </div>
+        </article>
+
+        <article class="comparison-task">
+          <h4>LIBERO-Long</h4>
+          <div class="retention-grid">
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-long-retain-50-comparison.jpg"><source src="assets/method-comparison/libero-long-retain-50-comparison.mp4" type="video/mp4"></video><figcaption>Retain 50% · 210/100</figcaption></figure>
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-long-retain-25-comparison.jpg"><source src="assets/method-comparison/libero-long-retain-25-comparison.mp4" type="video/mp4"></video><figcaption>Retain 25% · 256/64</figcaption></figure>
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-long-retain-12p5-comparison.jpg"><source src="assets/method-comparison/libero-long-retain-12p5-comparison.mp4" type="video/mp4"></video><figcaption>Retain 12.5% · 256/32</figcaption></figure>
+          </div>
+        </article>
 
         <h3 class="dynamics-heading real-dynamics-heading">Real-World Manipulation</h3>
-        <div class="comparison-grid" aria-label="Real-world method comparisons">
-          <video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-hang-cup-comparison.jpg">
-            <source src="assets/method-comparison/real-hang-cup-comparison.mp4" type="video/mp4">
-          </video>
-          <video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-place-pear-comparison.jpg">
-            <source src="assets/method-comparison/real-place-pear-comparison.mp4" type="video/mp4">
-          </video>
-          <video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-put-duck-comparison.jpg">
-            <source src="assets/method-comparison/real-put-duck-comparison.mp4" type="video/mp4">
-          </video>
-          <video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-set-kettle-comparison.jpg">
-            <source src="assets/method-comparison/real-set-kettle-comparison.mp4" type="video/mp4">
-          </video>
-        </div>
+        <p class="budget-note">Real-world comparisons use the 50% and 25% settings.</p>
+
+        <article class="comparison-task">
+          <h4>Hang Cup</h4>
+          <div class="retention-grid two-up">
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-hang-cup-retain-50-comparison.jpg"><source src="assets/method-comparison/real-hang-cup-retain-50-comparison.mp4" type="video/mp4"></video><figcaption>Retain 50% · 210/100</figcaption></figure>
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-hang-cup-retain-25-comparison.jpg"><source src="assets/method-comparison/real-hang-cup-retain-25-comparison.mp4" type="video/mp4"></video><figcaption>Retain 25% · 256/64</figcaption></figure>
+          </div>
+        </article>
+
+        <article class="comparison-task">
+          <h4>Place Pear</h4>
+          <div class="retention-grid two-up">
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-place-pear-retain-50-comparison.jpg"><source src="assets/method-comparison/real-place-pear-retain-50-comparison.mp4" type="video/mp4"></video><figcaption>Retain 50% · 210/100</figcaption></figure>
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-place-pear-retain-25-comparison.jpg"><source src="assets/method-comparison/real-place-pear-retain-25-comparison.mp4" type="video/mp4"></video><figcaption>Retain 25% · 256/64</figcaption></figure>
+          </div>
+        </article>
+
+        <article class="comparison-task">
+          <h4>Put Duck</h4>
+          <div class="retention-grid two-up">
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-put-duck-retain-50-comparison.jpg"><source src="assets/method-comparison/real-put-duck-retain-50-comparison.mp4" type="video/mp4"></video><figcaption>Retain 50% · 210/100</figcaption></figure>
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-put-duck-retain-25-comparison.jpg"><source src="assets/method-comparison/real-put-duck-retain-25-comparison.mp4" type="video/mp4"></video><figcaption>Retain 25% · 256/64</figcaption></figure>
+          </div>
+        </article>
+
+        <article class="comparison-task">
+          <h4>Set Kettle</h4>
+          <div class="retention-grid two-up">
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-set-kettle-retain-50-comparison.jpg"><source src="assets/method-comparison/real-set-kettle-retain-50-comparison.mp4" type="video/mp4"></video><figcaption>Retain 50% · 210/100</figcaption></figure>
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-set-kettle-retain-25-comparison.jpg"><source src="assets/method-comparison/real-set-kettle-retain-25-comparison.mp4" type="video/mp4"></video><figcaption>Retain 25% · 256/64</figcaption></figure>
+          </div>
+        </article>
         <p class="caption dynamics-caption">
-          Four LIBERO suites and four physical Franka tasks. All three panels in a task share the same source observations and synchronized start time.
+          All three panels within a clip use the same complete source trajectory and synchronized start time.
         </p>
       </div>
     </section>
