@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Robot arm">
-  <rect x="2" y="2" width="60" height="60" rx="13" fill="#ffffff" stroke="#222222" stroke-width="4"/>
-  <path d="M12 54h27" fill="none" stroke="#222222" stroke-width="6" stroke-linecap="round"/>
-  <path d="M23 48l10-18 15-7" fill="none" stroke="#222222" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="23" cy="48" r="5" fill="#ffffff" stroke="#222222" stroke-width="4"/>
-  <circle cx="33" cy="30" r="5" fill="#ffffff" stroke="#222222" stroke-width="4"/>
-  <circle cx="48" cy="23" r="4" fill="#ffffff" stroke="#222222" stroke-width="4"/>
-  <path d="M51 21l6-6M52 25l7 5" fill="none" stroke="#222222" stroke-width="4" stroke-linecap="round"/>
-</svg>
