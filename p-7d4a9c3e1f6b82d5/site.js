@@ -32,16 +32,28 @@
   }, { once: true });
 
   const lazyVideos = document.querySelectorAll(".lazy-video");
+  lazyVideos.forEach((video) => {
+    video.autoplay = true;
+    video.controls = false;
+  });
+
   if (!("IntersectionObserver" in window)) {
-    lazyVideos.forEach(hydrateVideo);
+    lazyVideos.forEach((video) => {
+      hydrateVideo(video);
+      video.play().catch(() => {});
+    });
     return;
   }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      hydrateVideo(entry.target);
-      observer.unobserve(entry.target);
+      const video = entry.target;
+      if (entry.isIntersecting) {
+        hydrateVideo(video);
+        video.play().catch(() => {});
+      } else if (video.dataset.loaded === "true") {
+        video.pause();
+      }
     });
   }, { rootMargin: "400px 0px" });
 
