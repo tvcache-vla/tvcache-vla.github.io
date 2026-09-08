@@ -1,9 +1,12 @@
 :root {
   --text: #222222;
   --muted: #666666;
-  --line: #dddddd;
-  --light: #f5f5f5;
+  --line: #e3e3e3;
+  --light: #f6f6f6;
+  --page-background: #f4f4f2;
+  --surface: #ffffff;
   --page-width: 960px;
+  --shell-width: 1120px;
 }
 
 * {
@@ -17,11 +20,21 @@ html {
 body {
   margin: 0;
   color: var(--text);
-  background: #ffffff;
+  background: var(--page-background);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 17px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+}
+
+main {
+  width: min(calc(100% - 56px), var(--shell-width));
+  margin: 38px auto 0;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.07);
 }
 
 img,
@@ -31,7 +44,7 @@ video {
 }
 
 .container {
-  width: min(calc(100% - 40px), var(--page-width));
+  width: min(calc(100% - 72px), var(--page-width));
   margin: 0 auto;
 }
 
@@ -40,7 +53,7 @@ video {
 }
 
 .hero {
-  padding: 72px 0 34px;
+  padding: 78px 0 38px;
   text-align: center;
 }
 
@@ -90,13 +103,14 @@ h1 {
 }
 
 .teaser {
-  padding: 8px 0 58px;
+  padding: 8px 0 68px;
 }
 
 .teaser video {
   aspect-ratio: 16 / 9;
   background: #000000;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
   object-fit: cover;
 }
 
@@ -110,7 +124,7 @@ figcaption {
 }
 
 .section {
-  padding: 62px 0;
+  padding: 72px 0;
   border-top: 1px solid var(--line);
 }
 
@@ -145,7 +159,7 @@ figure {
 
 figure img {
   border: 1px solid var(--line);
-  border-radius: 4px;
+  border-radius: 9px;
 }
 
 .method-grid {
@@ -156,8 +170,11 @@ figure img {
 }
 
 .method-grid article {
-  padding-top: 18px;
-  border-top: 2px solid #444444;
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  border-top: 3px solid #444444;
+  border-radius: 9px;
+  background: #fafafa;
 }
 
 .method-grid p {
@@ -200,8 +217,9 @@ figure img {
   overflow: hidden;
   margin: 0;
   border: 1px solid var(--line);
-  border-radius: 4px;
+  border-radius: 10px;
   background: #ffffff;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.045);
 }
 
 .libero-card > figcaption {
@@ -256,13 +274,16 @@ figure img {
 
 .retention-grid figure {
   margin: 0;
+  padding: 8px 8px 7px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fafafa;
 }
 
 .retention-grid video {
   aspect-ratio: 960 / 446;
   background: #eeeeee;
-  border: 1px solid var(--line);
-  border-radius: 3px;
+  border-radius: 6px;
   object-fit: contain;
 }
 
@@ -293,8 +314,8 @@ figure img {
 .table-wrap {
   overflow-x: auto;
   margin-top: 24px;
-  border-top: 1px solid #999999;
-  border-bottom: 1px solid #999999;
+  border: 1px solid #d6d6d6;
+  border-radius: 9px;
 }
 
 table {
@@ -342,9 +363,8 @@ tbody tr:last-child td {
 }
 
 footer {
-  padding: 30px 0 36px;
+  padding: 24px 0 32px;
   color: var(--muted);
-  border-top: 1px solid var(--line);
   font-size: 0.82rem;
   text-align: center;
 }
@@ -360,6 +380,16 @@ footer p {
 
   .hero {
     padding-top: 50px;
+  }
+
+  main {
+    width: min(calc(100% - 24px), var(--shell-width));
+    margin-top: 12px;
+    border-radius: 12px;
+  }
+
+  .container {
+    width: min(calc(100% - 38px), var(--page-width));
   }
 
   .section {
@@ -382,7 +412,7 @@ footer p {
 
 @media (max-width: 480px) {
   .container {
-    width: min(calc(100% - 26px), var(--page-width));
+    width: min(calc(100% - 28px), var(--page-width));
   }
 
   h1 {
