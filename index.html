@@ -57,25 +57,11 @@
       <div class="container content-width">
         <h2>Methodology</h2>
         <p class="section-intro">
-          TVCache refines both the spatial token decision and the depth-wise reuse decision while preserving the training-free nature of token caching.
+          TVCache refines both spatial token selection and depth-wise reuse while preserving the training-free nature of token caching. It first scores attention heads by their text-conditioned response intensity and spatial concentration, filtering diffuse or weak heads to obtain a cleaner relevance map that protects task-critical visual tokens. It then uses text–vision entropy differences to identify stable network depths and separates the selected reuse layers, avoiding both premature reuse and redundant recomputation.
         </p>
         <figure>
           <img src="assets/model-tvcache-2_00.png" alt="Overview of the TVCache framework." loading="lazy" decoding="async">
         </figure>
-        <div class="method-grid">
-          <article>
-            <h3>Task-relevant token selection</h3>
-            <p>
-              Attention heads are scored by their text-conditioned response intensity and spatial concentration. Filtering diffuse or weak heads produces a cleaner relevance map that protects task-critical visual tokens from reuse errors.
-            </p>
-          </article>
-          <article>
-            <h3>Reuse-layer selection</h3>
-            <p>
-              Text–vision entropy differences provide a layer-wise stability signal. TVCache places reuse at stable depths while maintaining separation between selected layers, avoiding both premature reuse and redundant recomputation.
-            </p>
-          </article>
-        </div>
       </div>
     </section>
 
