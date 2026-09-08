@@ -5,8 +5,8 @@
   --light: #f6f6f6;
   --page-background: #f9f9f9;
   --surface: #ffffff;
-  --page-width: 944px;
-  --shell-width: 1000px;
+  --page-width: 1080px;
+  --shell-width: 1136px;
 }
 
 * {
@@ -286,6 +286,10 @@ figure img {
   gap: 18px;
 }
 
+.retention-grid.three-up {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .retention-grid figure {
   margin: 0;
   padding: 8px 8px 7px;
@@ -387,6 +391,12 @@ footer p {
   margin: 0;
 }
 
+@media (max-width: 840px) {
+  .retention-grid.three-up {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 720px) {
   body {
     padding: 12px;
@@ -445,6 +455,10 @@ footer p {
   .retention-grid {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  .retention-grid.three-up {
+    grid-template-columns: 1fr;
   }
 
   th,
