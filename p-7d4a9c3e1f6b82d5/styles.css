@@ -271,6 +271,10 @@ figure img {
 }
 
 .comparison-task h4 {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 5px 10px;
   margin: 0 0 14px;
   color: #222222;
   font-size: 1.05rem;
@@ -278,10 +282,15 @@ figure img {
 }
 
 .comparison-task h4 span {
-  margin-left: 8px;
-  color: var(--muted);
-  font-size: 0.82rem;
+  color: #444444;
+  font-size: 0.94rem;
   font-weight: 400;
+}
+
+.comparison-task h4 span::before {
+  margin-right: 10px;
+  color: #999999;
+  content: "—";
 }
 
 .simulation-task:first-of-type {
