@@ -1,4 +1,8 @@
 (() => {
+  document.querySelectorAll(".retention-grid figcaption").forEach((caption) => {
+    caption.textContent = caption.textContent.split("·", 1)[0].trim();
+  });
+
   const hydrateVideo = (video) => {
     if (video.dataset.loaded === "true") return;
 
