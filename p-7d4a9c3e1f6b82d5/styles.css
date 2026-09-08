@@ -99,6 +99,10 @@ h1 {
   letter-spacing: -0.02em;
 }
 
+.title-line {
+  display: block;
+}
+
 .authors {
   margin: 22px 0 0;
   color: #333333;
@@ -107,6 +111,10 @@ h1 {
 
 .teaser {
   padding: 8px 0 68px;
+}
+
+.teaser .container {
+  max-width: 920px;
 }
 
 .teaser video {
@@ -284,6 +292,10 @@ figure img {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
+  width: 100%;
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .retention-grid.three-up {
