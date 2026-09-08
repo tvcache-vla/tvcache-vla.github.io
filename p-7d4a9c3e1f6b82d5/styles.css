@@ -171,6 +171,52 @@ figure img {
   text-align: left !important;
 }
 
+.libero-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 20px;
+}
+
+.libero-card {
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #ffffff;
+}
+
+.libero-card > figcaption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 0;
+  padding: 11px 13px 10px;
+  border-bottom: 1px solid var(--line);
+  color: #222222;
+  text-align: left;
+}
+
+.libero-card > figcaption strong {
+  color: #111111;
+  font-size: 0.92rem;
+}
+
+.libero-card > figcaption span {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.libero-video {
+  aspect-ratio: 960 / 404;
+  background: #f2f2f2;
+  object-fit: contain;
+}
+
 .comparison-task {
   margin-top: 30px;
   padding-top: 18px;
@@ -305,6 +351,10 @@ footer p {
   .method-grid {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .libero-grid {
+    grid-template-columns: 1fr;
   }
 
   .section p {
