@@ -5,19 +5,217 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
-  <title>404 · Not Found</title>
-  <style>
-    :root { color-scheme: light dark; font-family: ui-sans-serif, system-ui, sans-serif; }
-    body { min-height: 100vh; margin: 0; display: grid; place-items: center; background: #0f172a; color: #e2e8f0; }
-    main { text-align: center; }
-    strong { display: block; font-size: clamp(3rem, 12vw, 7rem); letter-spacing: -.08em; }
-    p { color: #94a3b8; }
-  </style>
+  <meta name="referrer" content="no-referrer">
+  <base href="/p-7d4a9c3e1f6b82d5/">
+  <meta name="description" content="">
+  <title>TVCache · Anonymous Project Page</title>
+  <link rel="icon" href="assets/robot-arm-2.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <main>
-    <strong>404</strong>
-    <p>The requested page was not found.</p>
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1>
+          Text–Vision Synergistic Token Caching: A Training-Free Framework for Efficient Vision-Language-Action Inference
+        </h1>
+        <p class="authors">Anonymous Author(s)</p>
+      </div>
+    </section>
+
+    <section class="teaser">
+      <div class="container">
+        <video autoplay muted loop playsinline controls preload="metadata" poster="assets/demo-poster.jpg">
+          <source src="assets/demo.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <p class="caption">
+          Real-world robot demonstrations with TVCache.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="overview">
+      <div class="container content-width">
+        <h2>Overview</h2>
+        <p>
+          Vision-language-action models repeatedly process dense visual tokens, making inference expensive during robot execution. Token caching reduces this cost by reusing temporally redundant representations, but existing approaches underuse the interaction between language and vision when deciding what and where to cache.
+        </p>
+        <p>
+          <strong>TVCache</strong> is a training-free framework that makes cache reuse task-aware at two complementary resolutions. It filters unreliable attention heads to obtain cleaner language-conditioned token relevance, and selects reuse layers according to cross-modal stability. The method plugs into pretrained VLAs without retraining or architectural modification.
+        </p>
+        <figure>
+          <img src="assets/introduction.png" alt="Motivation for text-vision synergistic token caching." loading="lazy" decoding="async">
+          <figcaption>
+            Existing VLA caching can suffer from token-level spatial misalignment and layer-level depth mismatch when text–vision reliability is not explicitly considered.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="method">
+      <div class="container content-width">
+        <h2>Methodology</h2>
+        <p class="section-intro">
+          TVCache refines both the spatial token decision and the depth-wise reuse decision while preserving the training-free nature of token caching.
+        </p>
+        <figure>
+          <img src="assets/model-tvcache-2_00.png" alt="Overview of the TVCache framework." loading="lazy" decoding="async">
+          <figcaption>
+            TVCache combines temporal patch similarity with filtered text–vision attention, then allocates cache reuse to stable network depths.
+          </figcaption>
+        </figure>
+        <div class="method-grid">
+          <article>
+            <h3>Task-relevant token selection</h3>
+            <p>
+              Attention heads are scored by their text-conditioned response intensity and spatial concentration. Filtering diffuse or weak heads produces a cleaner relevance map that protects task-critical visual tokens from reuse errors.
+            </p>
+          </article>
+          <article>
+            <h3>Reuse-layer selection</h3>
+            <p>
+              Text–vision entropy differences provide a layer-wise stability signal. TVCache places reuse at stable depths while maintaining separation between selected layers, avoiding both premature reuse and redundant recomputation.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="token-dynamics">
+      <div class="container content-width">
+        <h2>Full-Rollout Method Comparison</h2>
+        <p class="section-intro">
+          Each clip shows a complete successful task trajectory across <strong>Base</strong>, <strong>VLA-Cache</strong>, and <strong>Ours</strong>. Only rollouts explicitly recorded as successful by the evaluator are used.
+        </p>
+        <p class="comparison-note">
+          The three panels share the same successful source trajectory and are time-rescaled to <strong>1.00×</strong>, <strong>1.43×</strong>, and <strong>1.44×</strong>. They visualize relative playback rates and are not independent method outcomes or raw wall-clock recordings.
+        </p>
+
+        <h3 class="dynamics-heading">LIBERO Simulation</h3>
+        <div class="libero-grid">
+          <figure class="libero-card">
+            <figcaption><strong>LIBERO-Spatial</strong><span>Bowl to plate</span></figcaption>
+            <video class="libero-video" muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-spatial-successful-comparison.jpg">
+              <source src="assets/method-comparison/libero-spatial-successful-comparison.mp4" type="video/mp4">
+            </video>
+          </figure>
+
+          <figure class="libero-card">
+            <figcaption><strong>LIBERO-Object</strong><span>Soup into basket</span></figcaption>
+            <video class="libero-video" muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-object-successful-comparison.jpg">
+              <source src="assets/method-comparison/libero-object-successful-comparison.mp4" type="video/mp4">
+            </video>
+          </figure>
+
+          <figure class="libero-card">
+            <figcaption><strong>LIBERO-Goal</strong><span>Open middle drawer</span></figcaption>
+            <video class="libero-video" muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-goal-successful-comparison.jpg">
+              <source src="assets/method-comparison/libero-goal-successful-comparison.mp4" type="video/mp4">
+            </video>
+          </figure>
+
+          <figure class="libero-card">
+            <figcaption><strong>LIBERO-Long</strong><span>Two objects into basket</span></figcaption>
+            <video class="libero-video" muted loop playsinline controls preload="none" poster="assets/method-comparison/libero-long-successful-comparison.jpg">
+              <source src="assets/method-comparison/libero-long-successful-comparison.mp4" type="video/mp4">
+            </video>
+          </figure>
+        </div>
+
+        <h3 class="dynamics-heading real-dynamics-heading">Real-World Manipulation</h3>
+        <p class="budget-note">Real-world comparisons use the 50% and 25% settings.</p>
+
+        <article class="comparison-task">
+          <h4>Hang Cup</h4>
+          <div class="retention-grid two-up">
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-hang-cup-retain-50-comparison.jpg"><source src="assets/method-comparison/real-hang-cup-retain-50-comparison.mp4" type="video/mp4"></video><figcaption>Retain 50% · 210/100</figcaption></figure>
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-hang-cup-retain-25-comparison.jpg"><source src="assets/method-comparison/real-hang-cup-retain-25-comparison.mp4" type="video/mp4"></video><figcaption>Retain 25% · 256/64</figcaption></figure>
+          </div>
+        </article>
+
+        <article class="comparison-task">
+          <h4>Place Pear</h4>
+          <div class="retention-grid two-up">
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-place-pear-retain-50-comparison.jpg"><source src="assets/method-comparison/real-place-pear-retain-50-comparison.mp4" type="video/mp4"></video><figcaption>Retain 50% · 210/100</figcaption></figure>
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-place-pear-retain-25-comparison.jpg"><source src="assets/method-comparison/real-place-pear-retain-25-comparison.mp4" type="video/mp4"></video><figcaption>Retain 25% · 256/64</figcaption></figure>
+          </div>
+        </article>
+
+        <article class="comparison-task">
+          <h4>Put Duck</h4>
+          <div class="retention-grid two-up">
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-put-duck-retain-50-comparison.jpg"><source src="assets/method-comparison/real-put-duck-retain-50-comparison.mp4" type="video/mp4"></video><figcaption>Retain 50% · 210/100</figcaption></figure>
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-put-duck-retain-25-comparison.jpg"><source src="assets/method-comparison/real-put-duck-retain-25-comparison.mp4" type="video/mp4"></video><figcaption>Retain 25% · 256/64</figcaption></figure>
+          </div>
+        </article>
+
+        <article class="comparison-task">
+          <h4>Set Kettle</h4>
+          <div class="retention-grid two-up">
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-set-kettle-retain-50-comparison.jpg"><source src="assets/method-comparison/real-set-kettle-retain-50-comparison.mp4" type="video/mp4"></video><figcaption>Retain 50% · 210/100</figcaption></figure>
+            <figure><video muted loop playsinline controls preload="none" poster="assets/method-comparison/real-set-kettle-retain-25-comparison.jpg"><source src="assets/method-comparison/real-set-kettle-retain-25-comparison.mp4" type="video/mp4"></video><figcaption>Retain 25% · 256/64</figcaption></figure>
+          </div>
+        </article>
+        <p class="caption dynamics-caption">
+          All three panels within a clip use the same evaluator-certified successful source trajectory and synchronized start time.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="comparison">
+      <div class="container content-width">
+        <h2>Results</h2>
+        <h3 class="result-heading">Simulation Results</h3>
+        <p class="section-intro">
+          Average success rate on LIBERO at matched token-retention ratios. TVCache consistently improves over VLA-Cache, with the largest gain appearing under the tightest OpenVLA-OFT budget.
+        </p>
+        <p class="result-summary">
+          On OpenVLA-OFT, TVCache improves average success by <strong>14.50 percentage points</strong> over VLA-Cache at 12.5% token retention while reducing FLOPs by <strong>2.44×</strong> relative to full-token inference.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>VLA model</th>
+                <th>Tokens retained</th>
+                <th>VLA-Cache</th>
+                <th>TVCache</th>
+                <th>Gain</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>OpenVLA-OFT</td><td>50%</td><td>96.80%</td><td><strong>97.55%</strong></td><td class="gain">+0.75 pp</td></tr>
+              <tr><td>OpenVLA-OFT</td><td>25%</td><td>87.85%</td><td><strong>95.55%</strong></td><td class="gain">+7.70 pp</td></tr>
+              <tr><td>OpenVLA-OFT</td><td>12.5%</td><td>69.50%</td><td><strong>84.00%</strong></td><td class="gain">+14.50 pp</td></tr>
+              <tr class="group-start"><td>BitVLA</td><td>50%</td><td>93.90%</td><td><strong>95.00%</strong></td><td class="gain">+1.10 pp</td></tr>
+              <tr><td>BitVLA</td><td>25%</td><td>93.15%</td><td><strong>94.90%</strong></td><td class="gain">+1.75 pp</td></tr>
+              <tr><td>BitVLA</td><td>12.5%</td><td>92.50%</td><td><strong>94.05%</strong></td><td class="gain">+1.55 pp</td></tr>
+              <tr class="group-start"><td>VLA-Adapter</td><td>50%</td><td>77.35%</td><td><strong>79.95%</strong></td><td class="gain">+2.60 pp</td></tr>
+              <tr><td>VLA-Adapter</td><td>25%</td><td>48.35%</td><td><strong>54.40%</strong></td><td class="gain">+6.05 pp</td></tr>
+              <tr class="group-start"><td>π<sub>0.5</sub></td><td>50%</td><td>97.20%</td><td><strong>98.45%</strong></td><td class="gain">+1.25 pp</td></tr>
+              <tr><td>π<sub>0.5</sub></td><td>25%</td><td>89.20%</td><td><strong>94.75%</strong></td><td class="gain">+5.55 pp</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 class="result-heading real-world-heading">Real-World Results</h3>
+        <p>
+          We further evaluate TVCache on four physical manipulation tasks with a Franka Research 3 robot. The comparison below reports success rates at matched token-retention ratios.
+        </p>
+        <figure class="compact-figure">
+          <img src="assets/flat_bar_chart_2_amplified.png" alt="Real-world comparison between TVCache and VLA-Cache." loading="lazy" decoding="async">
+          <figcaption>
+            Real-world evaluation across SetKettle, PackPear, HangCup, and PotDuck under matched retention ratios.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="container">
+      <p>TVCache · Anonymous project page · Under review</p>
+    </div>
+  </footer>
 </body>
 </html>
