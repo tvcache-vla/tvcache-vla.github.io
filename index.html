@@ -74,7 +74,7 @@
       <div class="container content-width">
         <h2>Qualitative Comparison</h2>
         <p class="section-intro">
-          We select a matched LIBERO-Goal case that separates the methods under the same task, initial state, and 12.5% token-retention budget. The three columns are <strong>independent deterministic rollouts</strong>: full-token inference succeeds, VLA-Cache fails to open the drawer, and TVCache restores the successful behavior. Yellow outlines show the task-relevant tokens selected from each method's own saved attention.
+          We select a matched LIBERO-Goal case under the same task, initial state, and 12.5% token-retention budget. The three columns are <strong>independent deterministic rollouts</strong>: full-token inference and TVCache succeed, while VLA-Cache fails. Yellow outlines show the dynamic top-32 task-relevant set recomputed at every policy query; cyan marks tokens newly entering the set.
         </p>
         <video class="lazy-video qualitative-video" muted loop playsinline preload="none" data-poster="assets/qualitative/drawer-independent-comparison.jpg">
           <source data-src="assets/qualitative/drawer-independent-comparison.mp4" type="video/mp4">
