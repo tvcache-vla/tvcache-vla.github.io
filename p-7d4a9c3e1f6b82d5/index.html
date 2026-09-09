@@ -80,10 +80,10 @@
           <source data-src="assets/qualitative/drawer-independent-comparison.mp4" type="video/mp4">
         </video>
         <p class="qualitative-explanation">
-          The pre-contact query below exposes the relevant selection difference. Averaging all heads causes VLA-Cache to miss a token on the drawer-handle boundary, whereas TVCache's selected-head relevance map retains it within the same top-32 relevance budget. The complete rollouts then end in failure and success, respectively.
+          The pre-contact query below isolates the spatial allocation difference. VLA-Cache's all-head relevance map misses a token on the drawer-handle boundary, whereas TVCache's head-filtered map retains it within the same top-32 relevance budget. TVCache also uses text–vision stability to place reuse at separated network depths. The attention panels therefore visualize the spatial component, while the success and failure labels report the complete methods, including layer selection.
         </p>
         <figure class="qualitative-figure">
-          <img src="assets/qualitative/drawer-critical-attention.jpg" alt="VLA-Cache misses a drawer-handle boundary token while TVCache retains it in a matched qualitative case." loading="lazy" decoding="async">
+          <img src="assets/qualitative/drawer-critical-attention.png" alt="TVCache improves spatial token selection through head filtering and depth allocation through reuse-layer selection." loading="lazy" decoding="async">
         </figure>
       </div>
     </section>
