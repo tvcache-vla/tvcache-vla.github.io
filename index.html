@@ -6,7 +6,6 @@
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
   <meta name="referrer" content="no-referrer">
-  <base href="/p-7d4a9c3e1f6b82d5/">
   <meta name="description" content="">
   <title>TVCache · Anonymous Project Page</title>
   <link rel="icon" href="assets/robot-arm-3.png" type="image/png">
@@ -71,14 +70,33 @@
       </div>
     </section>
 
+    <section class="section" id="qualitative">
+      <div class="container content-width">
+        <h2>Qualitative Comparison</h2>
+        <p class="section-intro">
+          We select a matched LIBERO-Goal case that separates the methods under the same task, initial state, and 12.5% token-retention budget. The three columns are <strong>independent deterministic rollouts</strong>: full-token inference succeeds, VLA-Cache fails to open the drawer, and TVCache restores the successful behavior. Yellow outlines show the task-relevant tokens selected from each method's own saved attention.
+        </p>
+        <video class="lazy-video qualitative-video" muted loop playsinline preload="none" data-poster="assets/qualitative/drawer-independent-comparison.jpg">
+          <source data-src="assets/qualitative/drawer-independent-comparison.mp4" type="video/mp4">
+        </video>
+        <p class="qualitative-explanation">
+          The pre-contact query below isolates the spatial allocation difference. VLA-Cache's all-head relevance map misses a token on the drawer-handle boundary, whereas TVCache's head-filtered map retains it within the same top-32 relevance budget. TVCache also uses text–vision stability to place reuse at separated network depths. The attention panels therefore visualize the spatial component, while the success and failure labels report the complete methods, including layer selection.
+        </p>
+        <figure class="qualitative-figure">
+          <img src="assets/qualitative/drawer-critical-attention.png" alt="TVCache improves spatial token selection through head filtering and depth allocation through reuse-layer selection." loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </section>
+
     <section class="section" id="token-dynamics">
       <div class="container content-width">
-        <h2>Full-Rollout Method Comparison</h2>
+        <h2>Full-Rollout Token Visualization</h2>
         <p class="section-intro">
-          Each clip shows a complete successful task trajectory across <strong>Base</strong>, <strong>VLA-Cache</strong>, and <strong>Ours</strong>. Only rollouts explicitly recorded as successful by the evaluator are used. Blue patches are reused; yellow patches are recomputed. Each task is shown at all three retention settings.
+          The following clips visualize cache allocation over representative complete trajectories at three retention settings. They illustrate token-selection behavior; the independent outcome comparison is reported above.
         </p>
 
         <h3 class="dynamics-heading">LIBERO Simulation</h3>
+        <p class="budget-note">Blue patches are reused; yellow patches are recomputed. Each task is shown at all three retention settings.</p>
 
         <article class="comparison-task simulation-task">
           <h4>LIBERO-Spatial <span>Pick up the black bowl between the plate and the ramekin and place it on the plate.</span></h4>
@@ -117,6 +135,7 @@
         </article>
 
         <h3 class="dynamics-heading real-dynamics-heading">Real-World Manipulation</h3>
+        <p class="budget-note">Real-world comparisons use the 50%, 25%, and 12.5% settings.</p>
 
         <article class="comparison-task">
           <h4>Hang Cup <span>Hang the cup on the wooden mug tree.</span></h4>
