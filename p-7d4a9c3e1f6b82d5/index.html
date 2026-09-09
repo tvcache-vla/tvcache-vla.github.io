@@ -70,11 +70,29 @@
       </div>
     </section>
 
+    <section class="section" id="qualitative">
+      <div class="container content-width">
+        <h2>Qualitative Comparison</h2>
+        <p class="section-intro">
+          We select a matched LIBERO-Goal case that separates the methods under the same task, initial state, and 12.5% token-retention budget. The three columns are <strong>independent deterministic rollouts</strong>: full-token inference succeeds, VLA-Cache fails to open the drawer, and TVCache restores the successful behavior. Yellow outlines show the task-relevant tokens selected from each method's own saved attention.
+        </p>
+        <video class="lazy-video qualitative-video" muted loop playsinline preload="none" data-poster="assets/qualitative/drawer-independent-comparison.jpg">
+          <source data-src="assets/qualitative/drawer-independent-comparison.mp4" type="video/mp4">
+        </video>
+        <p class="qualitative-explanation">
+          The pre-contact query below exposes the relevant selection difference. Averaging all heads causes VLA-Cache to miss a token on the drawer-handle boundary, whereas TVCache's selected-head relevance map retains it within the same top-32 relevance budget. The complete rollouts then end in failure and success, respectively.
+        </p>
+        <figure class="qualitative-figure">
+          <img src="assets/qualitative/drawer-critical-attention.jpg" alt="VLA-Cache misses a drawer-handle boundary token while TVCache retains it in a matched qualitative case." loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </section>
+
     <section class="section" id="token-dynamics">
       <div class="container content-width">
-        <h2>Full-Rollout Method Comparison</h2>
+        <h2>Full-Rollout Token Visualization</h2>
         <p class="section-intro">
-          Each clip shows a complete successful task trajectory across <strong>Base</strong>, <strong>VLA-Cache</strong>, and <strong>Ours</strong>. Only rollouts explicitly recorded as successful by the evaluator are used.
+          The following clips visualize cache allocation over representative complete trajectories at three retention settings. They illustrate token-selection behavior; the independent outcome comparison is reported above.
         </p>
 
         <h3 class="dynamics-heading">LIBERO Simulation</h3>

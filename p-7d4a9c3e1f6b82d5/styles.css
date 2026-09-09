@@ -209,6 +209,22 @@ figure img {
   border-radius: 9px;
 }
 
+.qualitative-video {
+  aspect-ratio: 1080 / 484;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #f7f8fa;
+  object-fit: contain;
+}
+
+.qualitative-explanation {
+  margin: 28px 0 0;
+}
+
+.qualitative-figure {
+  margin-top: 18px;
+}
+
 .dynamics-heading {
   margin: 0 0 14px;
   font-size: 1.3rem;
