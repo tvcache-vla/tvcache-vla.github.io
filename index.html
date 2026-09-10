@@ -83,7 +83,7 @@
           The attention maps isolate spatial selection: VLA-Cache misses a drawer-handle boundary token, while TVCache retains it under the same top-32 budget. TVCache also selects stable, separated reuse layers.
         </p>
         <figure class="qualitative-figure">
-          <img src="assets/qualitative/drawer-critical-attention.png" alt="TVCache improves spatial token selection through head filtering and depth allocation through reuse-layer selection." loading="lazy" decoding="async">
+          <img src="assets/qualitative/drawer-critical-attention.png" alt="VLA-Cache misses a drawer-handle boundary token while TVCache retains it under the same token budget." loading="lazy" decoding="async">
         </figure>
       </div>
     </section>
@@ -95,15 +95,7 @@
           The following clips visualize cache allocation over representative complete trajectories at three retention settings. They illustrate token-selection behavior; the independent outcome comparison is reported above.
         </p>
 
-        <h3 class="dynamics-heading">Failure-to-Success Example</h3>
-        <article class="failure-recovery-task">
-          <h4>LIBERO-Goal <span>Open the middle drawer of the cabinet.</span></h4>
-          <figure>
-            <img class="rollout-gif" src="assets/qualitative/vla-cache-failure-tvcache-success.gif" alt="Independent matched rollouts in which VLA-Cache fails and TVCache succeeds." loading="lazy" decoding="async">
-          </figure>
-        </article>
-
-        <h3 class="dynamics-heading additional-rollouts-heading">Additional LIBERO Rollouts</h3>
+        <h3 class="dynamics-heading">LIBERO Simulation</h3>
         <p class="budget-note">Blue patches are reused; yellow patches are recomputed. Each task is shown at all three retention settings.</p>
 
         <article class="comparison-task simulation-task">
@@ -187,36 +179,11 @@
         <h2>Results</h2>
         <h3 class="result-heading">Simulation Results</h3>
         <p class="section-intro">
-          Average success rate on LIBERO at matched token-retention ratios. TVCache consistently improves over VLA-Cache, with the largest gain appearing under the tightest OpenVLA-OFT budget.
+          Ablations across token-retention settings show that both task-relevant head selection and reuse-layer selection contribute to TVCache, with the largest gains appearing under aggressive token reuse.
         </p>
-        <p class="result-summary">
-          On OpenVLA-OFT, TVCache improves average success by <strong>14.50 percentage points</strong> over VLA-Cache at 12.5% token retention while reducing FLOPs by <strong>2.44×</strong> relative to full-token inference.
-        </p>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>VLA model</th>
-                <th>Tokens retained</th>
-                <th>VLA-Cache</th>
-                <th>TVCache</th>
-                <th>Gain</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>OpenVLA-OFT</td><td>50%</td><td>96.80%</td><td><strong>97.55%</strong></td><td class="gain">+0.75 pp</td></tr>
-              <tr><td>OpenVLA-OFT</td><td>25%</td><td>87.85%</td><td><strong>95.55%</strong></td><td class="gain">+7.70 pp</td></tr>
-              <tr><td>OpenVLA-OFT</td><td>12.5%</td><td>69.50%</td><td><strong>84.00%</strong></td><td class="gain">+14.50 pp</td></tr>
-              <tr class="group-start"><td>BitVLA</td><td>50%</td><td>93.90%</td><td><strong>95.00%</strong></td><td class="gain">+1.10 pp</td></tr>
-              <tr><td>BitVLA</td><td>25%</td><td>93.15%</td><td><strong>94.90%</strong></td><td class="gain">+1.75 pp</td></tr>
-              <tr><td>BitVLA</td><td>12.5%</td><td>92.50%</td><td><strong>94.05%</strong></td><td class="gain">+1.55 pp</td></tr>
-              <tr class="group-start"><td>VLA-Adapter</td><td>50%</td><td>77.35%</td><td><strong>79.95%</strong></td><td class="gain">+2.60 pp</td></tr>
-              <tr><td>VLA-Adapter</td><td>25%</td><td>48.35%</td><td><strong>54.40%</strong></td><td class="gain">+6.05 pp</td></tr>
-              <tr class="group-start"><td>π<sub>0.5</sub></td><td>50%</td><td>97.20%</td><td><strong>98.45%</strong></td><td class="gain">+1.25 pp</td></tr>
-              <tr><td>π<sub>0.5</sub></td><td>25%</td><td>89.20%</td><td><strong>94.75%</strong></td><td class="gain">+5.55 pp</td></tr>
-            </tbody>
-          </table>
-        </div>
+        <figure class="compact-figure simulation-ablation-figure">
+          <img src="assets/ablation-study.png" alt="Ablation study of task-relevant head selection and reuse-layer selection on OpenVLA-OFT and BitVLA." loading="lazy" decoding="async">
+        </figure>
         <h3 class="result-heading real-world-heading">Real-World Results</h3>
         <p>
           We further evaluate TVCache on four physical manipulation tasks with a Franka Research 3 robot. The comparison below reports success rates at matched token-retention ratios.
