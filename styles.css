@@ -276,6 +276,28 @@ figure img {
   margin-top: 38px;
 }
 
+.real-attention-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+  margin: 20px 0 34px;
+}
+
+.real-attention-grid figure {
+  margin: 0;
+}
+
+.real-attention-grid a {
+  display: block;
+  border-radius: 9px;
+}
+
+.real-attention-grid img {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #ffffff;
+}
+
 .comparison-note {
   margin: -10px 0 28px;
   color: var(--muted) !important;
@@ -519,6 +541,10 @@ footer p {
   }
 
   .libero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .real-attention-grid {
     grid-template-columns: 1fr;
   }
 
