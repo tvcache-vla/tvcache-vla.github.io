@@ -92,45 +92,45 @@
       <div class="container content-width">
         <h2>Full-Rollout Token Visualization</h2>
         <p class="section-intro">
-          The following clips visualize cache allocation over representative complete trajectories at three retention settings. They illustrate token-selection behavior; the independent outcome comparison is reported above.
+          Each panel compares independently executed trajectories from the same simulator initial state: Base succeeds, VLA-Cache fails, and Ours succeeds. The overlays show each trajectory's actual per-query token decisions.
         </p>
 
         <h3 class="dynamics-heading">LIBERO Simulation</h3>
-        <p class="budget-note">Blue patches are reused; yellow patches are recomputed. Each task is shown at all three retention settings.</p>
+        <p class="budget-note">Blue patches are reused; yellow patches are recomputed. Masks update at each policy query and remain fixed during the corresponding action chunk.</p>
 
         <article class="comparison-task simulation-task">
-          <h4>LIBERO-Spatial <span>Pick up the black bowl between the plate and the ramekin and place it on the plate.</span></h4>
+          <h4>LIBERO-Spatial <span>Pick up the black bowl on the stove and place it on the plate.</span></h4>
           <div class="retention-grid three-up">
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-spatial-retain-50-comparison.jpg"><source data-src="assets/method-comparison/libero-spatial-retain-50-comparison.mp4" type="video/mp4"></video><figcaption>Retain 50%</figcaption></figure>
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-spatial-retain-25-comparison.jpg"><source data-src="assets/method-comparison/libero-spatial-retain-25-comparison.mp4" type="video/mp4"></video><figcaption>Retain 25%</figcaption></figure>
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-spatial-retain-12p5-comparison.jpg?v=c3b3563"><source data-src="assets/method-comparison/libero-spatial-retain-12p5-comparison.mp4?v=c3b3563" type="video/mp4"></video><figcaption>Retain 12.5%</figcaption></figure>
+            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-spatial-retain-50-comparison.jpg?v=matched-20260915"><source data-src="assets/method-comparison/libero-spatial-retain-50-comparison.mp4?v=matched-20260915" type="video/mp4"></video><figcaption>Retain 50%</figcaption></figure>
+            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-spatial-retain-25-comparison.jpg?v=matched-20260915"><source data-src="assets/method-comparison/libero-spatial-retain-25-comparison.mp4?v=matched-20260915" type="video/mp4"></video><figcaption>Retain 25%</figcaption></figure>
+            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-spatial-retain-12p5-comparison.jpg?v=matched-20260915"><source data-src="assets/method-comparison/libero-spatial-retain-12p5-comparison.mp4?v=matched-20260915" type="video/mp4"></video><figcaption>Retain 12.5%</figcaption></figure>
           </div>
         </article>
 
         <article class="comparison-task simulation-task">
-          <h4>LIBERO-Object <span>Place the alphabet soup in the basket.</span></h4>
+          <h4>LIBERO-Object <span>Pick up the chocolate pudding and place it in the basket.</span></h4>
           <div class="retention-grid three-up">
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-object-retain-50-comparison.jpg"><source data-src="assets/method-comparison/libero-object-retain-50-comparison.mp4" type="video/mp4"></video><figcaption>Retain 50%</figcaption></figure>
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-object-retain-25-comparison.jpg"><source data-src="assets/method-comparison/libero-object-retain-25-comparison.mp4" type="video/mp4"></video><figcaption>Retain 25%</figcaption></figure>
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-object-retain-12p5-comparison.jpg"><source data-src="assets/method-comparison/libero-object-retain-12p5-comparison.mp4" type="video/mp4"></video><figcaption>Retain 12.5%</figcaption></figure>
+            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-object-retain-50-comparison.jpg?v=matched-20260915"><source data-src="assets/method-comparison/libero-object-retain-50-comparison.mp4?v=matched-20260915" type="video/mp4"></video><figcaption>Retain 50%</figcaption></figure>
+            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-object-retain-25-comparison.jpg?v=matched-20260915"><source data-src="assets/method-comparison/libero-object-retain-25-comparison.mp4?v=matched-20260915" type="video/mp4"></video><figcaption>Retain 25%</figcaption></figure>
+            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-object-retain-12p5-comparison.jpg?v=matched-20260915"><source data-src="assets/method-comparison/libero-object-retain-12p5-comparison.mp4?v=matched-20260915" type="video/mp4"></video><figcaption>Retain 12.5%</figcaption></figure>
           </div>
         </article>
 
         <article class="comparison-task simulation-task">
-          <h4>LIBERO-Goal <span>Open the middle drawer of the cabinet.</span></h4>
+          <h4>LIBERO-Goal <span>Open the top drawer and put the bowl inside.</span></h4>
           <div class="retention-grid three-up">
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-goal-retain-50-comparison.jpg"><source data-src="assets/method-comparison/libero-goal-retain-50-comparison.mp4" type="video/mp4"></video><figcaption>Retain 50%</figcaption></figure>
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-goal-retain-25-comparison.jpg"><source data-src="assets/method-comparison/libero-goal-retain-25-comparison.mp4" type="video/mp4"></video><figcaption>Retain 25%</figcaption></figure>
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-goal-retain-12p5-comparison.jpg"><source data-src="assets/method-comparison/libero-goal-retain-12p5-comparison.mp4" type="video/mp4"></video><figcaption>Retain 12.5%</figcaption></figure>
+            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-goal-retain-50-comparison.jpg?v=matched-20260915"><source data-src="assets/method-comparison/libero-goal-retain-50-comparison.mp4?v=matched-20260915" type="video/mp4"></video><figcaption>Retain 50%</figcaption></figure>
+            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-goal-retain-25-comparison.jpg?v=matched-20260915"><source data-src="assets/method-comparison/libero-goal-retain-25-comparison.mp4?v=matched-20260915" type="video/mp4"></video><figcaption>Retain 25%</figcaption></figure>
+            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-goal-retain-12p5-comparison.jpg?v=matched-20260915"><source data-src="assets/method-comparison/libero-goal-retain-12p5-comparison.mp4?v=matched-20260915" type="video/mp4"></video><figcaption>Retain 12.5%</figcaption></figure>
           </div>
         </article>
 
         <article class="comparison-task simulation-task">
-          <h4>LIBERO-Long <span>Place the alphabet soup and tomato sauce in the basket.</span></h4>
+          <h4>LIBERO-Long <span>Put both moka pots on the stove.</span></h4>
           <div class="retention-grid three-up">
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-long-retain-50-comparison.jpg"><source data-src="assets/method-comparison/libero-long-retain-50-comparison.mp4" type="video/mp4"></video><figcaption>Retain 50%</figcaption></figure>
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-long-retain-25-comparison.jpg?v=c3b3563"><source data-src="assets/method-comparison/libero-long-retain-25-comparison.mp4?v=c3b3563" type="video/mp4"></video><figcaption>Retain 25%</figcaption></figure>
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-long-retain-12p5-comparison.jpg"><source data-src="assets/method-comparison/libero-long-retain-12p5-comparison.mp4" type="video/mp4"></video><figcaption>Retain 12.5%</figcaption></figure>
+            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-long-retain-50-comparison.jpg?v=matched-20260915"><source data-src="assets/method-comparison/libero-long-retain-50-comparison.mp4?v=matched-20260915" type="video/mp4"></video><figcaption>Retain 50%</figcaption></figure>
+            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-long-retain-25-comparison.jpg?v=matched-20260915"><source data-src="assets/method-comparison/libero-long-retain-25-comparison.mp4?v=matched-20260915" type="video/mp4"></video><figcaption>Retain 25%</figcaption></figure>
+            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/libero-long-retain-12p5-comparison.jpg?v=matched-20260915"><source data-src="assets/method-comparison/libero-long-retain-12p5-comparison.mp4?v=matched-20260915" type="video/mp4"></video><figcaption>Retain 12.5%</figcaption></figure>
           </div>
         </article>
 
