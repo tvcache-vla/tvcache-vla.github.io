@@ -92,7 +92,7 @@
       <div class="container content-width">
         <h2>Full-Rollout Token Visualization</h2>
         <p class="section-intro">
-          Each panel compares independently executed trajectories from the same simulator initial state: Base succeeds, VLA-Cache fails, and Ours succeeds. The overlays show each trajectory's actual per-query token decisions.
+          Simulation panels compare independently executed trajectories from the same initial state: Base succeeds, VLA-Cache fails, and Ours succeeds. Real-world panels show TVCache rollouts with their actual per-query token decisions.
         </p>
 
         <h3 class="dynamics-heading">LIBERO Simulation</h3>
@@ -134,44 +134,26 @@
           </div>
         </article>
 
-        <div id="real-world-trajectories" hidden>
+        <div id="real-world-trajectories">
         <h3 class="dynamics-heading real-dynamics-heading">Real-World Manipulation</h3>
-
-        <article class="comparison-task">
-          <h4>Hang Cup <span>Hang the cup on the wooden mug tree.</span></h4>
-          <div class="retention-grid three-up">
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/real-hang-cup-retain-50-comparison.jpg"><source data-src="assets/method-comparison/real-hang-cup-retain-50-comparison.mp4" type="video/mp4"></video><figcaption>Retain 50%</figcaption></figure>
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/real-hang-cup-retain-25-comparison.jpg"><source data-src="assets/method-comparison/real-hang-cup-retain-25-comparison.mp4" type="video/mp4"></video><figcaption>Retain 25%</figcaption></figure>
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/real-hang-cup-retain-12p5-comparison.jpg"><source data-src="assets/method-comparison/real-hang-cup-retain-12p5-comparison.mp4" type="video/mp4"></video><figcaption>Retain 12.5%</figcaption></figure>
-          </div>
-        </article>
-
-        <article class="comparison-task">
-          <h4>Pack Pear <span>Pick up the pear and place it inside the basket.</span></h4>
-          <div class="retention-grid three-up">
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/real-place-pear-retain-50-comparison.jpg"><source data-src="assets/method-comparison/real-place-pear-retain-50-comparison.mp4" type="video/mp4"></video><figcaption>Retain 50%</figcaption></figure>
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/real-place-pear-retain-25-comparison.jpg"><source data-src="assets/method-comparison/real-place-pear-retain-25-comparison.mp4" type="video/mp4"></video><figcaption>Retain 25%</figcaption></figure>
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/real-place-pear-retain-12p5-comparison.jpg"><source data-src="assets/method-comparison/real-place-pear-retain-12p5-comparison.mp4" type="video/mp4"></video><figcaption>Retain 12.5%</figcaption></figure>
-          </div>
-        </article>
-
-        <article class="comparison-task">
-          <h4>Pot Duck <span>Put the duck into the pot and cover it with the lid.</span></h4>
-          <div class="retention-grid three-up">
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/real-put-duck-retain-50-comparison.jpg"><source data-src="assets/method-comparison/real-put-duck-retain-50-comparison.mp4" type="video/mp4"></video><figcaption>Retain 50%</figcaption></figure>
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/real-put-duck-retain-25-comparison.jpg"><source data-src="assets/method-comparison/real-put-duck-retain-25-comparison.mp4" type="video/mp4"></video><figcaption>Retain 25%</figcaption></figure>
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/real-put-duck-retain-12p5-comparison.jpg"><source data-src="assets/method-comparison/real-put-duck-retain-12p5-comparison.mp4" type="video/mp4"></video><figcaption>Retain 12.5%</figcaption></figure>
-          </div>
-        </article>
-
-        <article class="comparison-task">
-          <h4>Set Kettle <span>Pick up the kettle and place it on the plate.</span></h4>
-          <div class="retention-grid three-up">
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/real-set-kettle-retain-50-comparison.jpg"><source data-src="assets/method-comparison/real-set-kettle-retain-50-comparison.mp4" type="video/mp4"></video><figcaption>Retain 50%</figcaption></figure>
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/real-set-kettle-retain-25-comparison.jpg"><source data-src="assets/method-comparison/real-set-kettle-retain-25-comparison.mp4" type="video/mp4"></video><figcaption>Retain 25%</figcaption></figure>
-            <figure><video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/method-comparison/real-set-kettle-retain-12p5-comparison.jpg"><source data-src="assets/method-comparison/real-set-kettle-retain-12p5-comparison.mp4" type="video/mp4"></video><figcaption>Retain 12.5%</figcaption></figure>
-          </div>
-        </article>
+        <div class="real-trajectory-grid">
+          <article class="real-trajectory-card">
+            <h4>Hang Cup <span>Hang the cup on the wooden mug tree.</span></h4>
+            <video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/token-dynamics/real-hang-cup.jpg"><source data-src="assets/token-dynamics/real-hang-cup.mp4" type="video/mp4"></video>
+          </article>
+          <article class="real-trajectory-card">
+            <h4>Pack Pear <span>Pick up the pear and place it inside the basket.</span></h4>
+            <video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/token-dynamics/real-place-pear.jpg"><source data-src="assets/token-dynamics/real-place-pear.mp4" type="video/mp4"></video>
+          </article>
+          <article class="real-trajectory-card">
+            <h4>Pot Duck <span>Put the duck into the pot and cover it with the lid.</span></h4>
+            <video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/token-dynamics/real-put-duck.jpg"><source data-src="assets/token-dynamics/real-put-duck.mp4" type="video/mp4"></video>
+          </article>
+          <article class="real-trajectory-card">
+            <h4>Set Kettle <span>Pick up the kettle and place it on the plate.</span></h4>
+            <video class="lazy-video" muted loop playsinline controls preload="none" data-poster="assets/token-dynamics/real-set-kettle.jpg"><source data-src="assets/token-dynamics/real-set-kettle.mp4" type="video/mp4"></video>
+          </article>
+        </div>
         </div>
       </div>
     </section>

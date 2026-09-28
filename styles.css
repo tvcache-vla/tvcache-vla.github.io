@@ -425,6 +425,44 @@ figure img {
   font-size: 0.82rem;
 }
 
+.real-trajectory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 960px;
+  margin: 20px auto 0;
+}
+
+.real-trajectory-card {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fafafa;
+}
+
+.real-trajectory-card h4 {
+  margin: 0 0 10px;
+  color: #222222;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.real-trajectory-card h4 span {
+  display: block;
+  margin-top: 2px;
+  color: #555555;
+  font-size: 0.86rem;
+  font-weight: 400;
+}
+
+.real-trajectory-card video {
+  width: 100%;
+  aspect-ratio: 512 / 612;
+  border-radius: 6px;
+  background: #eeeeee;
+  object-fit: contain;
+}
+
 .dynamics-caption {
   margin-top: 14px;
 }
@@ -546,6 +584,11 @@ footer p {
 
   .real-attention-grid {
     grid-template-columns: 1fr;
+  }
+
+  .real-trajectory-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
   }
 
   .section p {
