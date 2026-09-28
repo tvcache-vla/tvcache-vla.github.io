@@ -76,14 +76,14 @@
         <p class="section-intro">
           For the instruction <em>Open the middle drawer of the cabinet</em>, we compare <strong>independent deterministic rollouts</strong> from the same initial state under a 12.5% token-retention budget. Full-token inference and TVCache succeed, while VLA-Cache fails. Yellow outlines show the dynamic top-32 task-relevant set recomputed at every policy query.
         </p>
-        <video class="lazy-video qualitative-video" muted loop playsinline preload="none" data-poster="assets/qualitative/drawer-independent-comparison-titleless.jpg">
-          <source data-src="assets/qualitative/drawer-independent-comparison-titleless.mp4" type="video/mp4">
+        <video class="lazy-video qualitative-video" muted loop playsinline preload="none" data-poster="assets/qualitative/drawer-independent-comparison-no-bottom.jpg">
+          <source data-src="assets/qualitative/drawer-independent-comparison-no-bottom.mp4" type="video/mp4">
         </video>
         <p class="qualitative-explanation">
           TVCache improves cache allocation at two resolutions. At the rollout level, VLA-Cache fails whereas TVCache succeeds. At the token level, VLA-Cache misses a drawer-handle boundary token, while TVCache retains it under the same top-32 budget. TVCache also selects stable, separated reuse layers.
         </p>
         <figure class="qualitative-figure">
-          <img src="assets/qualitative/drawer-critical-attention-titleless.png" alt="VLA-Cache misses a drawer-handle boundary token while TVCache retains it under the same token budget." loading="lazy" decoding="async">
+          <img src="assets/qualitative/drawer-critical-attention-no-bottom.png" alt="VLA-Cache misses a drawer-handle boundary token while TVCache retains it under the same token budget." loading="lazy" decoding="async">
         </figure>
       </div>
     </section>

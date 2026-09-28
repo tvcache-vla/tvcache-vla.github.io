@@ -210,7 +210,7 @@ figure img {
 }
 
 .qualitative-video {
-  aspect-ratio: 1080 / 426;
+  aspect-ratio: 1080 / 380;
   border: 1px solid var(--line);
   border-radius: 9px;
   background: #f7f8fa;
