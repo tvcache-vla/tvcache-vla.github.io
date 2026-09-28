@@ -427,23 +427,23 @@ figure img {
 
 .real-trajectory-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
   max-width: 960px;
   margin: 20px auto 0;
 }
 
 .real-trajectory-card {
-  padding: 12px;
+  padding: 8px;
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 8px;
   background: #fafafa;
 }
 
 .real-trajectory-card h4 {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   color: #222222;
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.35;
 }
 
@@ -451,13 +451,13 @@ figure img {
   display: block;
   margin-top: 2px;
   color: #555555;
-  font-size: 0.86rem;
+  font-size: 0.76rem;
   font-weight: 400;
 }
 
 .real-trajectory-card video {
   width: 100%;
-  aspect-ratio: 512 / 612;
+  aspect-ratio: 512 / 520;
   border-radius: 6px;
   background: #eeeeee;
   object-fit: contain;
@@ -548,6 +548,10 @@ footer p {
   .retention-grid.three-up {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .real-trajectory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 720px) {
@@ -587,8 +591,7 @@ footer p {
   }
 
   .real-trajectory-grid {
-    grid-template-columns: 1fr;
-    max-width: 520px;
+    max-width: 600px;
   }
 
   .section p {
@@ -616,6 +619,11 @@ footer p {
 
   .retention-grid.three-up {
     grid-template-columns: 1fr;
+  }
+
+  .real-trajectory-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
   }
 
   th,
