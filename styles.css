@@ -426,14 +426,31 @@ figure img {
   font-size: 0.82rem;
 }
 
+.real-task-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
 .real-world-task {
-  max-width: 700px;
-  margin-right: auto;
-  margin-left: auto;
+  max-width: none;
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.real-world-task h4 {
+  min-height: 3em;
 }
 
 .real-retention-grid {
-  max-width: 700px;
+  gap: 10px;
+  max-width: none;
+}
+
+.real-retention-grid figure {
+  padding: 5px;
 }
 
 .real-retention-grid video {
@@ -525,6 +542,10 @@ footer p {
   .retention-grid.three-up {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .real-retention-grid.three-up {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
 }
 
 @media (max-width: 720px) {
@@ -561,6 +582,13 @@ footer p {
 
   .real-attention-grid {
     grid-template-columns: 1fr;
+  }
+
+  .real-task-grid {
+    grid-template-columns: 1fr;
+    max-width: 700px;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .section p {
