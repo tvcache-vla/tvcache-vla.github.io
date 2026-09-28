@@ -222,7 +222,8 @@ figure img {
 }
 
 .qualitative-figure {
-  margin-top: 18px;
+  max-width: 760px;
+  margin: 18px auto 0;
 }
 
 .failure-recovery-task {
